@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://cdn.jsdelivr.net/npm/css.gg/icons/all.css' rel='stylesheet'>
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+</head>
+
+<body>
+
+    <div id="mapid"></div>
+
+    <header>
+        <form>
+            <div class="grp-input-btn">
+                <input type="text" placeholder="シティロゲ">
+                <button><i class="gg-search"></i></button>
+            </div>
+        </form>
+        <ul class="tags">
+            <li><a href="#" class="tag">ロゲイニング</a></li>
+            <li><a href="#" class="tag">World Orienteering Day</a></li>
+            <li><a href="#" class="tag">ナビたび公式</a></li>
+            <li><a href="#" class="tag">古地図</a></li>
+            <li id="tag-opener" onclick="document.getElementById('tag-more').classList.toggle('--open');document.getElementById('tag-opener').style.display='none';">
+                <a href="#" class="tag --light">もっとタグを見る</a>
+            </li>
+            <div id="tag-more">
+                <li><a href="#" class="tag">初心者オススメ</a></li>
+                <li><a href="#" class="tag">時間制限なし</a></li>
+                <li><a href="#" class="tag">スタンプラリー</a></li>
+                <li><a href="#" class="tag">自治体公式</a></li>
+            </div>
+        </ul>
+    </header>
+
+    <main id="card-contents" class="--open">
+        <div id="cards-opener">
+            <div class="--icon" onclick="document.getElementById('card-contents').classList.toggle('--open');">
+                <i class="gg-arrow-align-h"></i>
+            </div>
+        </div>
+        <div class="cards">
+            <h2><i class="gg-bolt"></i>Pick Up</h2>
+            <div class="card">
+                <ul class="card-tags">
+                    <li class="card-tag --success">LIVE</li>
+                    <li class="card-tag">ロゲイニング</li>
+                </ul>
+                <h2>いい感じのロゲイニング</h2>
+                <span>
+                    <i class="gg-user"></i>
+                    Taro Yamada
+                </span>
+            </div>
+
+            <div class="card">
+                <ul class="card-tags">
+                    <li class="card-tag">オリエンテーリング</li>
+                    <li class="card-tag">古地図</li>
+                </ul>
+                <h2>すごいオリエンテーリング</h2>
+                <span>
+                    <i class="gg-user"></i>
+                    Jiro Tanaka
+                </span>
+            </div>
+
+            <div class="card">
+                <ul class="card-tags">
+                    <li class="card-tag">八王子</li>
+                    <li class="card-tag">World Orienteering Day</li>
+                    <li class="card-tag">週間ランキング2位</li>
+                </ul>
+                <h2>Hachioji Yabai World Orienteering Day</h2>
+                <span>
+                    <i class="gg-user"></i>
+                    Saburo Sato
+                </span>
+            </div>
+
+            <h2><i class="gg-corner-right-up"></i>Hot Events</h2>
+            <div class="card">
+                <ul class="card-tags">
+                    <li class="card-tag">ナビたび公式</li>
+                    <li class="card-tag">World Orienteering Day</li>
+                </ul>
+                <h2>NaviTabi World Orienteering Day 2022</h2>
+                <span>
+                    <i class="gg-user"></i>
+                    NaviTabi
+                </span>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script>
+        var map = L.map('mapid').setView([35.688544, 139.764692], 15);
+        L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+            attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
+        }).addTo(map);
+    </script>
+
+</body>
+
+</html>
